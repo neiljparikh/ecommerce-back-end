@@ -49,7 +49,7 @@ router.put('/:id', async (req, res) => {
         id: req.params.id,
       }
     });
-    // check if the category exists, if it doesn't it will send back an error message and stop running the request
+
     if (!categoryData) {
       res.status(404).json({ message: "No category found" });
       return;
@@ -60,7 +60,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE request deletes a category by id value
 router.delete('/:id', async (req, res) => {
   try {
     const categoryData = await Category.destroy({
